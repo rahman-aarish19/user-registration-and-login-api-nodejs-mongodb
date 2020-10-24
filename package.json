@@ -5,7 +5,7 @@
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": ""
+        "url": "https://github.com/rahman-aarish19/user-registration-and-login-api-nodejs-mongodb.git"
     },
     "scripts": {
         "start": "node ./server.js",
