@@ -1,8 +1,6 @@
 const config = require('config.js');
 const mongoose = require('mongoose');
 
-let constr = '';
-
 const connectionString = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : config.connectionString;
 
 mongoose.connect(connectionString, { useCreateIndex: true, useNewUrlParser: true });
