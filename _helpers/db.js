@@ -3,13 +3,9 @@ const mongoose = require('mongoose');
 
 let constr = '';
 
-if (process.env.NODE_ENV === 'production') {
-    constr = process.env.MONGODB_URI;
-} else {
-    constr = config.connectionString;
-}
+const connectionString = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : config.connectionString;
 
-mongoose.connect(constr, { useCreateIndex: true, useNewUrlParser: true });
+mongoose.connect(connectionString, { useCreateIndex: true, useNewUrlParser: true });
 mongoose.Promise = global.Promise;
 
 module.exports = {
