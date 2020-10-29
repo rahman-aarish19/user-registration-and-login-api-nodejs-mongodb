@@ -1,12 +1,13 @@
 ﻿require('rootpath')();
 const express = require('express');
+const chalk = require('chalk');
 const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const jwt = require('_helpers/jwt');
 const errorHandler = require('_helpers/error-handler');
 
-console.log(process.env.NODE_ENV);
+console.log(chalk.yellow(`App running in ${process.env.NODE_ENV} mode.`));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -25,5 +26,5 @@ app.use(errorHandler);
 // start server
 const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
 const server = app.listen(port, function () {
-    console.log('Server listening on port ' + port);
+    console.log(chalk.cyan.bold(`Server running on http://localhost:${port}`));
 });
